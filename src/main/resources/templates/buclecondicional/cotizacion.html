@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pagina de ejemplo de bucle condicional con Thymeleaf</title>
+</head>
+<body>
+<h2>Cotizacion</h2>
+<p><b>ID:</b><span th:text="${objetoCotizacion.id}"></span></p>
+<table border="1">
+<thead>
+	<tr>
+	<td><b>Producto</b></td>
+	<td><b>Cantidad</b></td>
+	<td><b>Monto</b></td>
+	<td><b>Comentario</b></td>
+	</tr>
+</thead>
+<tbody>
+	<tr th:each="detalle:${objetoCotizacion.items}">
+	<td th:text="${detalle.productoNombre}"></td>
+	<td th:text="${detalle.cantidad}"></td>
+	<td th:text="${detalle.monto}"></td>
+	<td >
+	<span th:if="${detalle.monto}>200">El monto es mayor a 200</span>
+	<span th:unless="${detalle.monto}>200"><b>El monto NO es mayor a 200</b></span>
+	</td>
+	</tr>
+</tbody>
+</table>
+</body>
+</html>
