@@ -34,5 +34,10 @@ public class Usuario {
 		this.email = email;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String s = "";
+		s+="id: "+id+", nombre: "+nombre+", email: "+email;
+		return s;
+	}
 }

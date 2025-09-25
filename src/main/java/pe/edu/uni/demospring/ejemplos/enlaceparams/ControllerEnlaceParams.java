@@ -35,6 +35,7 @@ public class ControllerEnlaceParams {
 	
 	@PostMapping("/actualizar")
 	public String actualizar(@ModelAttribute Usuario usuarioActualizado) {
+		System.out.println("Actualizando " + usuarioActualizado);
 		Usuario usuarioSeleccionado = null;
 		for (Usuario usuario : lstUsuario) {
 			if (usuario.getId()==usuarioActualizado.getId()) {
@@ -61,6 +62,7 @@ public class ControllerEnlaceParams {
 	
 	@GetMapping("/editar/{id}")
     public String irEditar(@PathVariable(name = "id") int id, Model model) {
+		System.out.println("Editando usuario con id: " + id);
         Usuario usuario = lstUsuario.stream()
                 .filter(u -> u.getId()==id)
                 .findFirst().get();
