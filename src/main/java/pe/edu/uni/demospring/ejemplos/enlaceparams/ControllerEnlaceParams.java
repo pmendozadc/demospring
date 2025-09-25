@@ -50,6 +50,7 @@ public class ControllerEnlaceParams {
 
 	@PostMapping("/guardar")
     public String guardar(@ModelAttribute Usuario usuarioActualizado) {
+		System.out.println("Guardando " + usuarioActualizado);
         for (Usuario u : lstUsuario) {
             if (u.getId() == usuarioActualizado.getId()) {
                 u.setNombre(usuarioActualizado.getNombre());
